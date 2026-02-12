@@ -380,7 +380,7 @@ export async function convert(options: ConvertOptions): Promise<string> {
     },
     info: {
       title: options.title ?? path.basename(options.input, ".md"),
-      producer: "mdpdf-cli",
+      producer: "mrkdwn-pdf-cli",
     },
   };
 

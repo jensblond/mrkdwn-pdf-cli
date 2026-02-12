@@ -1,4 +1,4 @@
-# mdpdf-cli
+# mrkdwn-pdf-cli
 
 Lightweight Markdown to PDF converter. No headless browser, no Puppeteer, no Chrome — just pure JavaScript.
 
@@ -7,13 +7,13 @@ Renders GitHub-style PDFs with syntax-highlighted code blocks, tables, images, a
 ## Install
 
 ```bash
-npm install -g mdpdf-cli
+npm install -g mrkdwn-pdf-cli
 ```
 
 Or use directly with npx:
 
 ```bash
-npx mdpdf-cli README.md
+npx mrkdwn-pdf-cli README.md
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ mdpdf README.md --title "Project Documentation"
 ## Programmatic API
 
 ```typescript
-import { convert } from "mdpdf-cli";
+import { convert } from "mrkdwn-pdf-cli";
 
 const outputPath = await convert({
   input: "README.md",

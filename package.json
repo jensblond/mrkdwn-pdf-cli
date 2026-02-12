@@ -1,5 +1,5 @@
 {
-  "name": "mdpdf-cli",
+  "name": "mrkdwn-pdf-cli",
   "version": "1.0.0",
   "description": "Lightweight Markdown to PDF converter — no headless browser required",
   "main": "dist/index.js",
@@ -32,12 +32,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jensblond/mdpdf-cli.git"
+    "url": "git+https://github.com/jensblond/mrkdwn-pdf-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/jensblond/mdpdf-cli/issues"
+    "url": "https://github.com/jensblond/mrkdwn-pdf-cli/issues"
   },
-  "homepage": "https://github.com/jensblond/mdpdf-cli#readme",
+  "homepage": "https://github.com/jensblond/mrkdwn-pdf-cli#readme",
   "engines": {
     "node": ">=18"
   },

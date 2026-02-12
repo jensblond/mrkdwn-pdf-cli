@@ -1,4 +1,4 @@
-# mdpdf-cli
+# mrkdwn-pdf-cli
 
 A lightweight Markdown to PDF converter. No headless browser required!
 
@@ -13,7 +13,7 @@ A lightweight Markdown to PDF converter. No headless browser required!
 ## Installation
 
 ```bash
-npm install -g mdpdf-cli
+npm install -g mrkdwn-pdf-cli
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ mdpdf README.md --page-size Letter --margin 60
 Here's a TypeScript example:
 
 ```typescript
-import { convert } from "mdpdf-cli";
+import { convert } from "mrkdwn-pdf-cli";
 
 async function main() {
   const outputPath = await convert({
