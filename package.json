@@ -1,0 +1,60 @@
+{
+  "name": "mdpdf-cli",
+  "version": "1.0.0",
+  "description": "Lightweight Markdown to PDF converter — no headless browser required",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mdpdf": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/cli.js",
+    "test": "node dist/cli.js test/sample.md -o test/output.pdf"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "markdown",
+    "pdf",
+    "cli",
+    "converter",
+    "readme",
+    "markdown-to-pdf",
+    "document",
+    "github-style"
+  ],
+  "author": "jensblond",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jensblond/mdpdf-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jensblond/mdpdf-cli/issues"
+  },
+  "homepage": "https://github.com/jensblond/mdpdf-cli#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "commander": "^14.0.3",
+    "highlight.js": "^11.11.1",
+    "html-to-pdfmake": "^2.5.32",
+    "jsdom": "^24.1.3",
+    "markdown-it": "^14.1.1",
+    "pdfmake": "^0.3.3"
+  },
+  "devDependencies": {
+    "@types/html-to-pdfmake": "^2.4.5",
+    "@types/jsdom": "^27.0.0",
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^25.2.3",
+    "@types/pdfmake": "^0.3.1",
+    "typescript": "^5.9.3"
+  }
+}
