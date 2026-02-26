@@ -9,19 +9,22 @@ import * as path from "path";
 (globalThis as any).window = globalThis;
 const pdfmake = require("pdfmake");
 
-// Register standard fonts
+// Resolve bundled font directory
+const FONTS_DIR = path.join(__dirname, "..", "fonts");
+
+// Register embedded Roboto fonts (full Unicode support)
 pdfmake.addFonts({
-  Helvetica: {
-    normal: "Helvetica",
-    bold: "Helvetica-Bold",
-    italics: "Helvetica-Oblique",
-    bolditalics: "Helvetica-BoldOblique",
+  Roboto: {
+    normal: path.join(FONTS_DIR, "Roboto-Regular.ttf"),
+    bold: path.join(FONTS_DIR, "Roboto-Bold.ttf"),
+    italics: path.join(FONTS_DIR, "Roboto-Italic.ttf"),
+    bolditalics: path.join(FONTS_DIR, "Roboto-BoldItalic.ttf"),
   },
-  Courier: {
-    normal: "Courier",
-    bold: "Courier-Bold",
-    italics: "Courier-Oblique",
-    bolditalics: "Courier-BoldOblique",
+  RobotoMono: {
+    normal: path.join(FONTS_DIR, "RobotoMono-Regular.ttf"),
+    bold: path.join(FONTS_DIR, "RobotoMono-Bold.ttf"),
+    italics: path.join(FONTS_DIR, "RobotoMono-Italic.ttf"),
+    bolditalics: path.join(FONTS_DIR, "RobotoMono-BoldItalic.ttf"),
   },
 });
 
@@ -140,7 +143,7 @@ function getStyles() {
       color: "#1f2328",
     },
     "html-code": {
-      font: "Courier",
+      font: "RobotoMono",
       fontSize: 9,
       color: "#1f2328",
       background: "#eff1f3",
@@ -218,7 +221,7 @@ function createCodeBlockTable(item: any): any {
         [
           {
             text: codeText,
-            font: "Courier",
+            font: "RobotoMono",
             fontSize: 9,
             color: "#1f2328",
             margin: [10, 10, 10, 10],
@@ -257,7 +260,7 @@ function createHorizontalRule(): any {
         type: "line",
         x1: 0,
         y1: 0,
-        x2: 515, // will be clipped to page width
+        x2: 515,
         y2: 0,
         lineWidth: 1,
         lineColor: "#d0d7de",
@@ -279,8 +282,7 @@ function applyTableLayout(item: any): any {
   return {
     ...item,
     layout: {
-      hLineWidth: (i: number, node: any) =>
-        i === 0 || i === node.table.body.length ? 0.5 : 0.5,
+      hLineWidth: () => 0.5,
       vLineWidth: () => 0.5,
       hLineColor: () => "#d0d7de",
       vLineColor: () => "#d0d7de",
@@ -288,8 +290,7 @@ function applyTableLayout(item: any): any {
       paddingRight: () => 8,
       paddingTop: () => 5,
       paddingBottom: () => 5,
-      fillColor: (rowIndex: number) =>
-        rowIndex === 0 ? "#f6f8fa" : null,
+      fillColor: (rowIndex: number) => (rowIndex === 0 ? "#f6f8fa" : null),
     },
   };
 }
@@ -373,7 +374,7 @@ export async function convert(options: ConvertOptions): Promise<string> {
     images,
     styles: getStyles(),
     defaultStyle: {
-      font: "Helvetica",
+      font: "Roboto",
       fontSize: 11,
       color: "#1f2328",
       lineHeight: 1.5,
